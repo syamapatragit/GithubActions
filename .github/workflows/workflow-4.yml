@@ -1,6 +1,7 @@
 name: Workflow-3
 
 on: push
+    workflow_dispatch
 
 jobs:
     echo-data:
