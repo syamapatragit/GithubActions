@@ -1,6 +1,8 @@
 name: Workflow-3
 
-on: push
+on: 
+    push:
+    workflow_dispatch:
 
 jobs:
     echo-data:
@@ -14,6 +16,6 @@ jobs:
                 echo "Workflow": ${{github.workflow}}
                 echo "Run ID": ${{github.run_id}}
                 echo "Run Number": ${{github.run_number}}
-            - name: Retrive Variable
+            - name: Retrieve Variable
               run: |
-                    echo "Variable value: {{var.MY_VAR}}"
+                    echo "Variable value: ${{ vars.MY_VAR }}"
