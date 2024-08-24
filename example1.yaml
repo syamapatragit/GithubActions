@@ -1,0 +1,17 @@
+name: exmaple1
+
+on: push
+
+jobs:
+    echo-hello:
+          runs-on: ubuntu-latest
+          steps:
+              - name: Hello there 
+                run : echo "hello there"
+    echo-bye: 
+          runs-on: ubuntu-latest
+          steps:
+                - name: Failed steps
+                  run: |
+                    echo "bye bye"
+                    exit 1
