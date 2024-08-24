@@ -1,0 +1,20 @@
+name: workflow-6
+
+on:
+    push:
+    workflow_dispatch:
+env:
+    WORKFLOW_VAR: "I am a workflow var"
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        env:
+            JOB_VAR: "I am a Job Level var"
+        steps:
+            - name: Print the vraiable name
+              env:
+                STEP_VAR: "I am a step env var"
+              run: |
+                echo "Step env var: ${{ env.STEP_VAR }}"
+                echo "Step env job var: ${{ env.JOB_VAR }}"
+                echo "Step env workflow var: ${{ env.WORKFLOW_VAR }}"
