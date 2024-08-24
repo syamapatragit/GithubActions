@@ -1,0 +1,35 @@
+name: workflow-9
+
+on: 
+    workflow_dispatch:
+        inputs:
+            dry-run:
+                type: boolean
+                description: Skip the deployment and only print build output
+                default: false
+            target:
+                type: environment
+                required: true
+                description: Which environment the workflow will traget
+            tag:
+                type: choice
+                options:
+                    - v1
+                    - v2
+                    - v3
+                default: v3
+                description: Deploys the Code to produciton
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build
+              run: echo "Building the code form tag ${{ inputs.tag}}"
+    deploy:
+        runs-on: ubuntu-latest
+        if: ${{ !inputs.dry-run }}
+        environment: ${{ inputs.target }}
+        steps:
+           - name: Deploy
+             run: echo "Deploying to the produciton sever ${{ inputs.target }}"
