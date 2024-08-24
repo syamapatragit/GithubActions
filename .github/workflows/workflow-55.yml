@@ -20,6 +20,7 @@ jobs:
                 echo "Triggered by: ${{ github.sha}}"
                 echo "Triggered by: ${{ github.run_attempt}}"
                 echo "Triggered by: ${{ github.repository}}"
+                echo "Triggered by: ${{ github.token}}"
             - name: '[debug] Print the triggered from main'
               if: ${{ inputs.debug && github.ref == 'refs/heads/main' }}
               run: |
