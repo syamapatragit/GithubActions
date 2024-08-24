@@ -1,0 +1,28 @@
+name: workflow-5
+
+on: 
+    push:
+    workflow_dispatch:
+        inputs:
+            debug:
+                type: boolean
+                default: false
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: '[debug] Print information'
+              if: ${{ inputs.debug }}
+              run: |
+                echo "Triggered by: ${{ github.event_name}}"
+                echo "Triggered by: ${{ github.ref}}"
+                echo "Triggered by: ${{ github.sha}}"
+                echo "Triggered by: ${{ github.run_attempt}}"
+                echo "Triggered by: ${{ github.repository}}"
+            - name: '[debug] Print the triggered from main'
+              if: ${{ inputs.debug && github.ref == 'refs/heads/main' }}
+              run: |
+                echo 'Why the hell you triggered me???'
+            - name: Greeting
+              run: echo "hello motherfucker how are you???"
