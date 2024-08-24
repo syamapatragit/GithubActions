@@ -6,7 +6,7 @@ jobs:
     ubuntu-echo:
           runs-on: ubuntu-latest
           steps:
-              - name: show OS
-                run: |
+            - name: show OS
+              run: |
                   echo "this is a ubunutu machince"
                   echo "RunnerOS: $RUNNER_OS"
