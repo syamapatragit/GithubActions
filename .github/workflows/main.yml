@@ -1,6 +1,6 @@
 name: workflow1
 
-on: push
+on: workflow_dispatch
 
 jobs:
     echo-hello:
