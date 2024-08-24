@@ -1,8 +1,10 @@
 name: workflow-2
 
 on: 
-- push
-- pull_request 
+    push:
+    pull_request:
+    schedule:
+        - cron: '*/5****'
 
 jobs:
     echo: 
