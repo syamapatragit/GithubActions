@@ -1,0 +1,10 @@
+name: workflow-2
+
+on: push 
+
+jobs:
+    echo: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Show the trigger
+              run: echo "I have been triggerby ${{github.event_name}}"
